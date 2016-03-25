@@ -7,7 +7,7 @@ var piano = {
 		this.socketAction()
 		this.pianoStartHandler()
 	},
-	keyAction : function () {
+	keyAction : function () { //press dai
 		$(document).keypress(function(event) {
 			var keycode = (event.keyCode ? event.keyCode : event.which)
 			$('.piano .press').each(function (key,value) {
@@ -18,6 +18,7 @@ var piano = {
 					if(countKeyPress == 5) {
 						$(document).off('keypress')
 						socket.emit('endTurn')
+						piano.resetPiano()
 		
 					}
 
@@ -25,6 +26,16 @@ var piano = {
 			})
 		})
 	},
+
+	resetPiano : function(){
+		setTimeout(function(){
+			$('.piano .activeKey').each(function (key,value) {
+				$(this).addClass('white').removeClass('activeKey').addClass('press')
+			})
+		}, 500)
+		
+	},
+
 	socketAction : function () {
 		// socket.on('enableKey',function (enable) {
 		// 	if(enable){
@@ -44,7 +55,11 @@ var piano = {
 			})
 			setTimeout(function () {
 				piano.keyAction()
+				$('.piano .activeKey').each(function (key,value) {
+					$(this).addClass('white').removeClass('activeKey').addClass('press')
+				})
 			}, 6000);
+			socket.emit('endRound')
 
 		})
 		socket.on('welcomeName', function (name) {
@@ -73,6 +88,10 @@ var piano = {
 			$(".randomText").text(name)
 			piano.keyAction()
 
+		})
+
+		socket.on('youGoAgain', function (argument) {
+			piano.keyAction()
 		})
 
 		socket.on('oppoFirst', function (name) {

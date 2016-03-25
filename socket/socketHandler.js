@@ -48,7 +48,7 @@ function socketHandler(io) {
 		socket.on('endTurn',function () {
 
 			for(var i=0;i<players.length;i++){
-				var a
+			
 				if(players[i].socket == socket){
 					players[i].turn = false
 					players[i].socket.emit('enableKey',false)
@@ -66,6 +66,10 @@ function socketHandler(io) {
 					players[i].keys.push(key)
 				}
 			}
+		})
+
+		socket.on('endRound', function (argument) {
+			socket.emit('youGoAgain')
 		})
 
 		socket.on('ready',function () {
