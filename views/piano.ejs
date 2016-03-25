@@ -1,0 +1,63 @@
+	<title>Stupid piano</title>
+	<link href="piano.css" rel="stylesheet">
+	<link href="../bootstrap-3.3.6-dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+
+	<div class="random" style='position: absolute; top: 0; bottom: 0; left: 0; right: 0; z-index: 1000; background-color: gray'>
+		<div class="randomText"></div>
+		<div class="btn" type="button" class="btn btn-primary"><button id="start">Enter Game</button></div>
+	</div>
+
+	<div class="cover" style='position: absolute; top:0; bottom: 0; left:0; right:0; z-index: 1000; background-color: gray;'>
+
+	</div>
+
+
+	<div class="container">
+
+		<div class="row">
+
+			<div class="col-xs-3">
+				<div class="yourSide">
+					<div class="yourName"></div>
+					<div class="yourPoint"></div>
+				</div>
+			</div>
+
+			<div class="col-xs-6">
+				<ul class="set piano">
+					<li class="white b press"><span class='go-to-bottom'>F</span></li>
+					<li class="black as press"><span class='go-to-bottom'>F#</span></li>
+					<li class="white a press"><span class='go-to-bottom'>G</span></li>
+					<li class="black gs press"><span class='go-to-bottom'>G#</span></li>
+					<li class="white g press"><span class='go-to-bottom'>A</span></li>
+					<li class="black fs press"><span class='go-to-bottom'>A#</span></li>
+					<li class="white f press"><span class='go-to-bottom'>B</span></li>
+					<li class="white e press"><span class='go-to-bottom'>C</span></li>
+					<li class="black ds press"><span class='go-to-bottom'>C#</span></li>
+					<li class="white d press"><span class='go-to-bottom'>D</span></li>
+					<li class="black cs press"><span class='go-to-bottom'>D#</span></li>
+					<li class="white c press"><span class='go-to-bottom'>E</span></li>
+				</ul>
+			</div>
+			<div class="col-xs-3">
+				<div class="oppoSide">
+					<div class="oppoName"></div>
+					<div class="oppoPoint"></div>
+				</div>
+			</div>
+		</div>
+
+		<div class="timer">Timer:
+		<div class="time">
+
+		</div>
+		</div>
+
+	</div>
+</body>
+
+</html>
